@@ -1,5 +1,7 @@
 package com.vijay.library.distimelibrary;
 
+import android.util.Log;
+
 import java.text.DecimalFormat;
 
 import static java.lang.Math.acos;
@@ -7,10 +9,6 @@ import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 
 public class LocationCalculator {
-
-
-
-
 
     /* Round to decimal values */
     public double roundTwoDecimals(double d) {
@@ -53,6 +51,27 @@ public class LocationCalculator {
         double distance = distance_calculator(start_lat, start_lang, end_lat, end_long) / 1000;
         distance = roundTwoDecimals(distance);
         return distance;
+    }
+
+    public String calculateTime(double distance,float sp){
+
+        if(sp == 0.0F){
+            sp =(float) (11 * 18) / 5;
+        }else{
+            sp = (sp * 18) / 5;
+        }
+
+        double time = distance / sp;
+        time = time * 60;
+        time = Math.round(time);
+        String trim_time = time + "";
+
+        if (trim_time.contains(".")) {
+            trim_time = trim_time.substring(0, trim_time.indexOf("."));
+            Log.w("time ", "trim inisde if " + trim_time);
+        }
+
+        return trim_time.equalsIgnoreCase("1")?(trim_time + " min") : (trim_time + " mins") ;
     }
 
 }
