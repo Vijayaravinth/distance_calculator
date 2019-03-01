@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         String time = calculate.calculateTime(distance, 30.0F);
 
-        txtTime.setText("Time : " + time);
+        txtTime.setText("Time to reach  : " + time);
 
 
     }
