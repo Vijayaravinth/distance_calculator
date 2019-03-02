@@ -10,3 +10,9 @@
         TextView txtDistance  = (TextView) findViewById(R.id.txtDistance);
 
         txtDistance.setText("Distance between the location is "+ distance+"kms");
+        
+        TextView txtTime = (TextView) findViewById(R.id.txtTime);
+
+        String time = calculate.calculateTime(distance, 30.0F);
+
+        txtTime.setText("Time to reach  : " + time);
